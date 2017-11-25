@@ -6,11 +6,8 @@ defmodule Dictionary.WordList do
   end
   
   def random_word do
-    if :random.uniform < 0.33 do
-      Agent.get(@me, fn _ -> exit(:boom) end)
-    end
     Agent.get(@me, &Enum.random/1)
-  end
+  end 
   
   def word_list do
     "../../assets/words.txt"
